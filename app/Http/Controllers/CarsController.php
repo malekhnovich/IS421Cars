@@ -78,7 +78,14 @@ class CarsController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(Entrust::hasRole('salesPerson'))
+        {
+            $car = Car::findOrFail($id);
+
+            return view('cars.edit')->with('car', $car);
+        }
+
+        return Redirect::to('/');
     }
 
     /**
@@ -90,7 +97,8 @@ class CarsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //TODO finish updating car
+        return $id;
     }
 
     /**
