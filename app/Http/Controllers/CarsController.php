@@ -66,7 +66,8 @@ class CarsController extends Controller
      */
     public function show($id)
     {
-        //
+        //TODO return the view(Car Profile) along with the specified car
+        return Car::findOrFail($id);
     }
 
     /**
